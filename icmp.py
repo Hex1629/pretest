@@ -82,15 +82,7 @@ if len(all_ips) == 0:
  with open(os.path.join(os.getcwd(),'range_ipv6.txt'), 'r') as f:
     all_ips = [line.strip() for line in f if line.strip()]
 
-# Get the max number of IPs to use from argv[6]
-try:
-    max_ips = int(sys.argv[6])
-except (IndexError, ValueError):
-    print("[+] Error: argv[6] must be an integer and provided (e.g., 1000)")
-    sys.exit(1)
-
-# Limit the list to the specified number, but not more than available
-server_ip = all_ips[:min(max_ips, len(all_ips))]
+server_ip = all_ips
 random.shuffle(server_ip)
 
 print(f"[+] Loaded {len(server_ip)} IPv6 reflectors from file (limit: {max_ips})")
